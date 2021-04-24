@@ -1,0 +1,26 @@
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+        <property name="connection.url">jdbc:mysql://localhost:3306/KCG</property>
+        <property name="connection.username">root</property>
+        <property name="connection.password">Password123</property>
+        <property name="dialect">org.hibernate.dialect.MySQL8Dialect</property>
+        <!--property name="show_sql">true</property-->
+        <!--property name="format_sql">true</property-->
+        <!-- https://thorben-janssen.com/standardized-schema-generation-data-loading-jpa-2-1/ -->
+
+        <!--property name="javax.persistence.schema-generation.database.action">drop-and-create</property--> <!-- for test only! -->
+        <!--<property name="javax.persistence.schema-generation.database.action">none</property>--> <!-- for production use! -->
+        <!--<property name="javax.persistence.schema-generation.create-source">script</property>-->
+        <!--<property name="javax.persistence.schema-generation.create-script-source">schema-generation.sql</property>-->
+        <!--property name="javax.persistence.schema-generation.create-source">metadata</property-->
+        <!--property name="javax.persistence.schema-generation.drop-source">metadata</property-->
+        <!--<property name="javax.persistence.schema-generation.drop-script-source">schema-drop.sql</property>-->
+
+        <!--<property name="javax.persistence.sql-load-script-source">data.sql</property>-->
+
+    </session-factory>
+</hibernate-configuration>
