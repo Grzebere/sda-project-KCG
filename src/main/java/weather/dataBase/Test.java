@@ -11,7 +11,11 @@ public class Test {
     public static void main(String[] args) {
         final SessionFactory sessionFactory = new Configuration()
                 .configure("hibernate.cfg.xml")
+                .addAnnotatedClass(Location.class)
+                .addAnnotatedClass(WeatherArchive.class)
                 .buildSessionFactory();
+
+
 
 
     }
