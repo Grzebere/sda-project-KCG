@@ -71,7 +71,7 @@ public class Location {
     private String region;
     private String country;
 
-    @OneToMany(mappedBy = "weather_archive")
+    @OneToMany(mappedBy = "location")
     private List<WeatherArchive> weatherArchives;
 
 

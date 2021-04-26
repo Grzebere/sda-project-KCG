@@ -17,13 +17,13 @@ public class WeatherArchive {
 
     private LocalDate date;
     private Float temperature;
-    private Double pressure;
+    private Float pressure;
     private Float humidity;
 
     public WeatherArchive() {
     }
 
-    public WeatherArchive(Location location, LocalDate date, Float temperature, Double pressure, Float humidity) {
+    public WeatherArchive(Location location, LocalDate date, Float temperature, Float pressure, Float humidity) {
         this.location = location;
         this.date = date;
         this.temperature = temperature;
