@@ -39,13 +39,22 @@ public class WeatherArchive {
 
     @Override
     public String toString() {
-        return "WeatherArchive{" +
+        return "Pogoda z dnia: " +
+                date + " w " +
+                location.getRegion() + ", " +
+                location.getCountry() +
+                ": temperatura= " + temperature +
+                ", ciśnienie= " + pressure +
+                ", humidity= "+ humidity + ".";
+
+
+        /*return "WeatherArchive{" +
                 "id=" + id +
                 ", location=" + location +
                 ", date=" + date +
                 ", temperature=" + temperature +
                 ", pressure=" + pressure +
                 ", humidity=" + humidity +
-                '}';
+                '}';*/
     }
 }

@@ -1,10 +1,11 @@
 package weather.dataBase;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "locations")
+@Table(name = "location")
 public class Location {
 
     public static class LocationBuilder {
@@ -65,13 +66,13 @@ public class Location {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(unique = true, name = "name", length = 40)
+    @Column()
     private String longitude;
     private String latitude;
     private String region;
     private String country;
 
-    @OneToMany(mappedBy = "location")
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "location")
     private List<WeatherArchive> weatherArchives;
 
 
@@ -99,18 +100,42 @@ public class Location {
 
     @Override
     public String toString() {
-        return "Location{" +
+        return "Lokacja " +
+                id +
+                ": " + region +
+                ", " + country +
+                ", długość geograficzna:" + longitude +
+                ", szerokość geograficzna:" + latitude + '\n';
+
+
+        /*return "Location{" +
                 "id=" + id +
                 ", longitude='" + longitude + '\'' +
                 ", latitude='" + latitude + '\'' +
                 ", region='" + region + '\'' +
                 ", country='" + country + '\'' +
-                ", weatherArchives=" + weatherArchives +
-                '}';
+                //", weatherArchives=" + weatherArchives +
+                '}';*/
     }
 
     public Integer getId() {
         return id;
+    }
+
+    public String getLongitude() {
+        return longitude;
+    }
+
+    public String getLatitude() {
+        return latitude;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public String getRegion() {
+        return region;
     }
 
     public List<WeatherArchive> getWeatherArchives() {
