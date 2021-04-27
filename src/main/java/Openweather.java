@@ -4,8 +4,8 @@ import okhttp3.Request;
 import okhttp3.Response;
 import java.io.IOException;
 
-//Przykładowy
-class OpenWeathermap_Przykład {
+//Przykładowy dla Warszawy
+class OpenWeathermap_Example {
     private final static String BASE_URL = "http://api.openweathermap.org/data/2.5/weather?q=Warszawa&units=metric&appid=ed427a111d64798753394af633106470";
     public static void main(String[] args) throws IOException {
         Request request = new Request.Builder()
