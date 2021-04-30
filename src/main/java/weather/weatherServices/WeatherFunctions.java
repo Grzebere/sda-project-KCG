@@ -6,6 +6,8 @@ import okhttp3.Request;
 import okhttp3.Response;
 
 import java.io.IOException;
+import java.time.LocalDate;
+import java.util.Date;
 
 public class WeatherFunctions {
 
@@ -29,6 +31,8 @@ public class WeatherFunctions {
         Call call = client.newCall(request);
         Response response = call.execute();
         return response.body().string();
+
     }
+
 
 }

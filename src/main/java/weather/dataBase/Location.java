@@ -9,8 +9,8 @@ import java.util.List;
 public class Location {
 
     public static class LocationBuilder {
-        private String longitude;
-        private String latitude;
+        private double longitude;
+        private double latitude;
         private String region;
         private String country;
         private List<WeatherArchive> weatherArchives;
@@ -19,19 +19,19 @@ public class Location {
         }
 
 
-        public String getLongitude() {
+        public double getLongitude() {
             return longitude;
         }
 
-        public void setLongitude(String longitude) {
+        public void setLongitude(double longitude) {
             this.longitude = longitude;
         }
 
-        public String getLatitude() {
+        public double getLatitude() {
             return latitude;
         }
 
-        public void setLatitude(String latitude) {
+        public void setLatitude(double latitude) {
             this.latitude = latitude;
         }
 
@@ -67,8 +67,8 @@ public class Location {
     private Integer id;
 
     @Column()
-    private String longitude;
-    private String latitude;
+    private double longitude;
+    private double latitude;
     private String region;
     private String country;
 
@@ -79,7 +79,7 @@ public class Location {
     public Location() {
     }
 
-    public Location(String longitude, String latitude, String region, String country) {
+    public Location(double longitude, double latitude, String region, String country) {
         this.longitude = longitude;
         this.latitude = latitude;
         this.region = region;
@@ -122,11 +122,11 @@ public class Location {
         return id;
     }
 
-    public String getLongitude() {
+    public double getLongitude() {
         return longitude;
     }
 
-    public String getLatitude() {
+    public double getLatitude() {
         return latitude;
     }
 

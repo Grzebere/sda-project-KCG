@@ -1,8 +1,17 @@
+package weather.menu;
+
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
+import weather.dataBase.Location;
+import weather.dataBase.WeatherArchive;
+
 import java.text.SimpleDateFormat;
 import java.util.Scanner;
 
 public class User {
-    public static void main(String[] args) {
+    public static void start() {
+
+
         // wybór wyszukiwania
         System.out.println("Po czym chcesz wyszukać: 1 -> Po reginie, 2 -> Po danych geograicznych");
         Scanner scan = new Scanner(System.in);
@@ -13,6 +22,8 @@ public class User {
             System.out.println("Podaj miejscowość");
             Scanner scan2 = new Scanner(System.in);
             String region = scan.nextLine();
+            // select z bazy
+            // wyszukanie pogody po Location.getRegion
         }
         // wyszukiwanie po danych geograficznych
         else if (choice == 2) {
@@ -22,6 +33,8 @@ public class User {
             System.out.println("Podaj szerokość geograficzną");
             Scanner scan4 = new Scanner(System.in);
             String latitude = scan4.nextLine();
+            // select z bazy
+            // wyszukanie pogody po Location.getRegion
         }
 
         // inne

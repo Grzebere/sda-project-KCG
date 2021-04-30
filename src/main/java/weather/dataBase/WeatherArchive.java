@@ -1,7 +1,9 @@
 package weather.dataBase;
 
 import javax.persistence.*;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.util.Date;
 
 @Entity
 @Table(name = "weather_archive")
@@ -15,7 +17,7 @@ public class WeatherArchive {
     @JoinColumn(name = "idlocation")
     private Location location;
 
-    private LocalDate date;
+    private Date date;
     private Float temperature;
     private Float pressure;
     private Float humidity;
@@ -23,7 +25,7 @@ public class WeatherArchive {
     public WeatherArchive() {
     }
 
-    public WeatherArchive(Location location, LocalDate date, Float temperature, Float pressure, Float humidity) {
+    public WeatherArchive(Location location, Date date, Float temperature, Float pressure, Float humidity) {
         this.location = location;
         this.date = date;
         this.temperature = temperature;
@@ -40,7 +42,7 @@ public class WeatherArchive {
     @Override
     public String toString() {
         return "Pogoda z dnia: " +
-                date + " w " +
+                new SimpleDateFormat("yyyy-MM-dd").format(date) + " w " +
                 location.getRegion() + ", " +
                 location.getCountry() +
                 ": temperatura= " + temperature +
