@@ -2,7 +2,8 @@ package weather.weatherServices;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import java.util.List;
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.Map;
 
 public class OpenweatherDTO {
@@ -14,9 +15,10 @@ public class OpenweatherDTO {
     private int mainHumidity;
     private long dt;
     private String sysCountry;
-    private int timezone;
+    private String timezone;
     private int id;
     private String name;
+    private long date;
 
     public double getCoordLon() {
         return coordLon;
@@ -74,11 +76,11 @@ public class OpenweatherDTO {
         this.sysCountry = sysCountry;
     }
 
-    public int getTimezone() {
+    public String getTimezone() {
         return timezone;
     }
 
-    public void setTimezone(int timezone) {
+    public void setTimezone(String timezone) {
         this.timezone = timezone;
     }
 
@@ -117,8 +119,8 @@ public class OpenweatherDTO {
     @SuppressWarnings("unchecked")
     @JsonProperty("coord")
     private void unpackNestedCoord(Map<String, Object> coord) {
-        this.coordLon = (double)coord.get("lon");
-        this.coordLat = (double)coord.get("lat");
+        this.coordLon = (double) coord.get("lon");
+        this.coordLat = (double) coord.get("lat");
         /*
         this.sysCountry = (String) sys.get("country");*/
     }
@@ -126,16 +128,18 @@ public class OpenweatherDTO {
     @SuppressWarnings("unchecked")
     @JsonProperty("main")
     private void unpackNestedMain(Map<String, Object> main) {
-        this.mainTemp = (double)main.get("temp");
-        this.mainPressure = (int)main.get("pressure");
-        this.mainHumidity = (int)main.get("humidity");
+        this.mainTemp = (double) main.get("temp");
+        this.mainPressure = (int) main.get("pressure");
+        this.mainHumidity = (int) main.get("humidity");
     }
 
     @SuppressWarnings("unchecked")
     @JsonProperty("sys")
     private void unpackNestedSys(Map<String, Object> sys) {
-        this.sysCountry = (String)sys.get("country");
+        this.sysCountry = (String) sys.get("country");
     }
-    }
+
+
+}
 
 

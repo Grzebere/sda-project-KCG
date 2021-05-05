@@ -9,6 +9,7 @@ import java.util.List;
 public class Location {
 
     public static class LocationBuilder {
+        private int id;
         private double longitude;
         private double latitude;
         private String region;
@@ -18,6 +19,13 @@ public class Location {
         public LocationBuilder() {
         }
 
+        public int getId() {
+            return id;
+        }
+
+        public void setId(int id) {
+            this.id = id;
+        }
 
         public double getLongitude() {
             return longitude;
@@ -63,7 +71,6 @@ public class Location {
     }
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @Column()
@@ -79,14 +86,16 @@ public class Location {
     public Location() {
     }
 
-    public Location(double longitude, double latitude, String region, String country) {
+    public Location(int id, double longitude, double latitude, String region, String country) {
         this.longitude = longitude;
         this.latitude = latitude;
         this.region = region;
         this.country = country;
+        this.id = id;
     }
 
     public Location(LocationBuilder locationBuilder) {
+        this.id = locationBuilder.id;
         this.longitude = locationBuilder.longitude;
         this.latitude = locationBuilder.latitude;
         this.region = locationBuilder.region;

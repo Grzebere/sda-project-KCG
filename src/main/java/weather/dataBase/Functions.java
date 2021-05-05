@@ -12,9 +12,6 @@ import java.util.Date;
 import java.util.List;
 
 public class Functions {
-
-
-
     public static void insertLocation(Location location, SessionFactory sessionFactory){
         try (Session session = sessionFactory.openSession()) {
             Transaction transaction = session.beginTransaction();
@@ -60,6 +57,7 @@ public class Functions {
             transaction.commit();
         }
     }
+
     public static WeatherArchive selectWeatherByLocationAndDate(SessionFactory sessionFactory, Location location, Date date){
         try (Session session = sessionFactory.openSession()) {
             Query<WeatherArchive> weatherQuery = session.createQuery("SELECT wea FROM WeatherArchive wea WHERE wea.date = :date AND wea.location = :location", WeatherArchive.class);
@@ -69,7 +67,5 @@ public class Functions {
                     .getSingleResult();
             return weatherArchive;
         }
-
     }
-
 }

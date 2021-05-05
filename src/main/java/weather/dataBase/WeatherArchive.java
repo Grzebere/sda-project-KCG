@@ -21,16 +21,20 @@ public class WeatherArchive {
     private Float temperature;
     private Float pressure;
     private Float humidity;
+    private Double windSpeed;
+    private Integer windDeg;
 
     public WeatherArchive() {
     }
 
-    public WeatherArchive(Location location, Date date, Float temperature, Float pressure, Float humidity) {
+    public WeatherArchive(Location location, Date date, Float temperature, Float pressure, Float humidity, Double windSpeed, Integer windDeg ) {
         this.location = location;
         this.date = date;
         this.temperature = temperature;
         this.pressure = pressure;
         this.humidity = humidity;
+        this.windSpeed = windSpeed;
+        this.windDeg = windDeg;
     }
 
 
@@ -47,6 +51,8 @@ public class WeatherArchive {
                 location.getCountry() +
                 ": temperatura= " + temperature +
                 ", ciśnienie= " + pressure +
+                ", prędkość wiatru= " + windSpeed +
+                ", kierunek wiatru= " + windDeg +
                 ", humidity= "+ humidity + ".";
 
 
