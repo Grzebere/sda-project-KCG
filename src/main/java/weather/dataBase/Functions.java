@@ -8,10 +8,10 @@ import org.hibernate.query.Query;
 
 
 import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 
 public class Functions {
-
     public static void insertLocation(Location location, SessionFactory sessionFactory){
         try (Session session = sessionFactory.openSession()) {
             Transaction transaction = session.beginTransaction();
@@ -39,7 +39,7 @@ public class Functions {
         }
     }
 
-    public static Location selectLocationsByLongitudeAndLatitude(SessionFactory sessionFactory, String longitude , String latitude) {
+    public static Location selectLocationsByLongitudeAndLatitude(SessionFactory sessionFactory, double longitude , double latitude) {
         try (Session session = sessionFactory.openSession()) {
             Query<Location> locationQuery = session.createQuery("SELECT loc FROM Location loc WHERE loc.longitude = :longitude AND loc.latitude = :latitude", Location.class);
             Location location = locationQuery
@@ -57,16 +57,15 @@ public class Functions {
             transaction.commit();
         }
     }
-    public static WeatherArchive selectWeatherByLocationAndDate(SessionFactory sessionFactory, Location location, LocalDate localDate){
+
+    public static WeatherArchive selectWeatherByLocationAndDate(SessionFactory sessionFactory, Location location, Date date){
         try (Session session = sessionFactory.openSession()) {
-            Query<WeatherArchive> weatherQuery = session.createQuery("SELECT wea FROM WeatherArchive wea WHERE wea.date = :localDate AND wea.location = :location", WeatherArchive.class);
+            Query<WeatherArchive> weatherQuery = session.createQuery("SELECT wea FROM WeatherArchive wea WHERE wea.date = :date AND wea.location = :location", WeatherArchive.class);
             WeatherArchive weatherArchive = weatherQuery
-                    .setParameter("localDate", localDate)
+                    .setParameter("date", date)
                     .setParameter("location", location)
                     .getSingleResult();
             return weatherArchive;
         }
-
     }
-
 }
